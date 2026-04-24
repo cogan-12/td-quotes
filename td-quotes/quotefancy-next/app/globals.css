@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #09090e;
+  --surface: #111118;
+  --surface2: #16161f;
+  --border: rgba(255, 255, 255, 0.07);
+  --border2: rgba(255, 255, 255, 0.12);
+  --accent: #c8a96e;
+  --accent2: #7eb8d4;
+  --text: #f0ece4;
+  --muted: rgba(240, 236, 228, 0.45);
+  --muted2: rgba(240, 236, 228, 0.25);
+  --tag-bg: rgba(200, 169, 110, 0.1);
+  --tag-border: rgba(200, 169, 110, 0.25);
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-cormorant);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 5%, rgba(200,169,110,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 85% 95%, rgba(126,184,212,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 30% at 50% 50%, rgba(255,255,255,0.015) 0%, transparent 70%);
+}
+
+main { position: relative; z-index: 1; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up { animation: fadeUp 0.7s ease both; }
+.animate-fade-up-1 { animation: fadeUp 0.7s 0.15s ease both; }
+.animate-fade-up-2 { animation: fadeUp 0.7s 0.3s ease both; }
+.animate-fade-in { animation: fadeIn 0.4s ease both; }
